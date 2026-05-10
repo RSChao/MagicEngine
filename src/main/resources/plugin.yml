@@ -1,0 +1,7 @@
+name: MagicEngine
+version: '1.0'
+main: com.rschao.plugins.magicEngine.Plugin
+api-version: '1.21'
+load: STARTUP
+depend:
+  - TechniqueAPI
