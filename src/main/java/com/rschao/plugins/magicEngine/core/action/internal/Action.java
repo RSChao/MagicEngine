@@ -29,7 +29,7 @@ public abstract class Action implements TechniqueAction {
     public abstract ParamList getParameters();
 
     /**
-     * Método legado (con typo) para mantener compatibilidad. Delegará en
+     * Delegará en
      * {@link #getParameters()}.
      */
     @Deprecated
