@@ -6,7 +6,6 @@ import com.rschao.plugins.techniqueAPI.tech.Technique;
 import com.rschao.plugins.techniqueAPI.tech.TechniqueMeta;
 import com.rschao.plugins.techniqueAPI.tech.register.TechRegistry;
 import com.rschao.plugins.techniqueAPI.tech.selectors.TargetSelector;
-import org.checkerframework.checker.units.qual.A;
 
 import java.util.ArrayList;
 import java.util.Collections;

@@ -1,6 +1,9 @@
 package com.rschao.plugins.magicEngine.core.action.traps;
 
 import com.rschao.plugins.magicEngine.Plugin;
+import com.rschao.plugins.magicEngine.core.action.parameters.Param;
+import com.rschao.plugins.magicEngine.core.action.parameters.ParamList;
+import com.rschao.plugins.magicEngine.core.persistence.ActionId;
 import com.rschao.plugins.magicEngine.core.action.internal.InstantAction;
 import com.rschao.plugins.magicEngine.core.action.internal.TimeDependantAction;
 import com.rschao.plugins.techniqueAPI.tech.TechniqueAction;
@@ -21,6 +24,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+@ActionId(value = "spiral", cooldown = 100)
 public class SpiralMovementAction extends TimeDependantAction {
     private final int radius;
     public SpiralMovementAction(int radius) {
@@ -63,5 +67,17 @@ public class SpiralMovementAction extends TimeDependantAction {
                 }
             }
         }.runTaskTimer(Plugin.getInstance(), 10L, 2L); // start after 10 ticks, repeat every 2 ticks
+    }
+
+    @Override
+    public ParamList getParameters() {
+        return ParamList.of(
+                new Param("radius", radius)
+        );
+    }
+
+    public static SpiralMovementAction fromParams(ParamList pl) {
+        int radius = Integer.parseInt(pl.get("radius").map(p -> p.getValue().toString()).orElse("0"));
+        return new SpiralMovementAction(radius);
     }
 }
